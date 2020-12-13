@@ -36,4 +36,62 @@ public class Student {
     @JoinColumn(name = "students_id")
     private List<Progress> progresses;
 
+    public Student() {
+    }
+
+    public Student(String name, String surname, List<Course> courses, Group group, List<Progress> progresses) {
+        this.name = name;
+        this.surname = surname;
+        this.courses = courses;
+        this.group = group;
+        this.progresses = progresses;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public List<Course> getCourses() {
+        return courses;
+    }
+
+    public void setCourses(List<Course> courses) {
+        this.courses = courses;
+    }
+
+    public Group getGroup() {
+        return group;
+    }
+
+    public void setGroup(Group group) {
+        this.group = group;
+    }
+
+    public List<Progress> getProgresses() {
+        return progresses;
+    }
+
+    public void setProgresses(List<Progress> progresses) {
+        this.progresses = progresses;
+    }
 }

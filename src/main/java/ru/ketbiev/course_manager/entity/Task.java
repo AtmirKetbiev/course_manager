@@ -31,6 +31,74 @@ public class Task {
     @OneToMany(cascade = CascadeType.ALL
             , mappedBy = "task"
             , fetch = FetchType.EAGER)
-    @JoinColumn(name = "task_id")
+    @JoinColumn(name = "tasks_id")
     private List<Progress> progresses;
+
+    public Task() {
+    }
+
+    public Task(String name, String description, String softDeadline, String hardDeadline, Course course, List<Progress> progresses) {
+        this.name = name;
+        this.description = description;
+        this.softDeadline = softDeadline;
+        this.hardDeadline = hardDeadline;
+        this.course = course;
+        this.progresses = progresses;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getSoftDeadline() {
+        return softDeadline;
+    }
+
+    public void setSoftDeadline(String softDeadline) {
+        this.softDeadline = softDeadline;
+    }
+
+    public String getHardDeadline() {
+        return hardDeadline;
+    }
+
+    public void setHardDeadline(String hardDeadline) {
+        this.hardDeadline = hardDeadline;
+    }
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
+    }
+
+    public List<Progress> getProgresses() {
+        return progresses;
+    }
+
+    public void setProgresses(List<Progress> progresses) {
+        this.progresses = progresses;
+    }
 }
