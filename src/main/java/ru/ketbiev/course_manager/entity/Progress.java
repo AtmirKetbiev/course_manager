@@ -23,15 +23,17 @@ public class Progress {
     @Column(name = "grade")
     private int grade;
 
-    @Column(name = "id")
+    @Column(name = "comment")
     private String comment;
 
     @ManyToOne(cascade =  {CascadeType.PERSIST, CascadeType.DETACH, CascadeType.REFRESH, CascadeType.MERGE})
-    @JoinColumn(name = "tasks_id")
+    @JoinColumn(name = "tasks_id", insertable=false, updatable=false)
+    //@Column(insertable=false, updatable=false)
     private Task task;
 
     @ManyToOne(cascade =  {CascadeType.PERSIST, CascadeType.DETACH, CascadeType.REFRESH, CascadeType.MERGE})
-    @JoinColumn(name = "students_id")
+    @JoinColumn(name = "students_id", insertable=false, updatable=false)
+    //@Column(insertable=false, updatable=false)
     private Student student;
 
     public Progress() {
@@ -95,13 +97,13 @@ public class Progress {
         this.comment = comment;
     }
 
-    public Task getTask() {
-        return task;
-    }
-
-    public void setTask(Task task) {
-        this.task = task;
-    }
+//    public Task getTask() {
+//        return task;
+//    }
+//
+//    public void setTask(Task task) {
+//        this.task = task;
+//    }
 
     public Student getStudent() {
         return student;

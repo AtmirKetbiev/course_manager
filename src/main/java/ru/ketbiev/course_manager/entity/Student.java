@@ -31,9 +31,8 @@ public class Student {
     private Group group;
 
     @OneToMany(cascade = CascadeType.ALL
-            , mappedBy = "students"
-            , fetch = FetchType.EAGER)
-    @JoinColumn(name = "students_id")
+            , mappedBy = "student")
+    //@JoinColumn(name = "students_id")
     private List<Progress> progresses;
 
     public Student() {

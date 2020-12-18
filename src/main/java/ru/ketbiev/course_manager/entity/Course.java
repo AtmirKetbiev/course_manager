@@ -19,25 +19,21 @@ public class Course {
     private String description;
 
     @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(
-            name = "teachers_courses"
+    @JoinTable(name = "teachers_courses"
             , joinColumns = @JoinColumn(name = "courses_id")
-            , inverseJoinColumns = @JoinColumn(name = "teachers_id")
-    )
+            , inverseJoinColumns = @JoinColumn(name = "teachers_id"))
     private List<Teacher> teachers;
 
     @OneToMany(cascade = CascadeType.ALL
             , mappedBy = "course"
             , fetch = FetchType.EAGER)
-    @JoinColumn(name = "courses_id")
+    //@JoinColumn(name = "courses_id")
     private List<Task> tasks;
 
     @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(
-            name = "courses_students"
+    @JoinTable(name = "courses_students"
             , joinColumns = @JoinColumn(name = "courses_id")
-            , inverseJoinColumns = @JoinColumn(name = "students_id")
-    )
+            , inverseJoinColumns = @JoinColumn(name = "students_id"))
     private List<Student> students;
 
     public Course() {

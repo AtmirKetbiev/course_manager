@@ -31,19 +31,19 @@ public class Task {
     @OneToMany(cascade = CascadeType.ALL
             , mappedBy = "task"
             , fetch = FetchType.EAGER)
-    @JoinColumn(name = "tasks_id")
+    //@JoinColumn(name = "tasks_id")
     private List<Progress> progresses;
 
     public Task() {
     }
 
-    public Task(String name, String description, String softDeadline, String hardDeadline, Course course, List<Progress> progresses) {
+    public Task(String name, String description, String softDeadline, String hardDeadline, Course course) {
         this.name = name;
         this.description = description;
         this.softDeadline = softDeadline;
         this.hardDeadline = hardDeadline;
         this.course = course;
-        this.progresses = progresses;
+        //this.progresses = progresses;
     }
 
     public int getId() {

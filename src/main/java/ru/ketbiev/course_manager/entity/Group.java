@@ -18,7 +18,7 @@ public class Group {
     @OneToMany(cascade = CascadeType.ALL
             , mappedBy = "group"
             , fetch = FetchType.EAGER)
-    @JoinColumn(name = "groups_id")
+    //@JoinColumn(name = "groups_id")
     private List<Student> students;
 
 
