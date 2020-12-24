@@ -23,6 +23,8 @@
     <input type="button" value = "Teacher" onclick = " window.location.href = '/teacher' " />
     <br>
     <input type="button" value = "Student" onclick = " window.location.href = '/student' " />
+    <br>
+    <input type="button" value = "Registration" onclick = " window.location.href = '/registration' " />
 
 
     <h2>All Employees</h2>
