@@ -64,7 +64,7 @@ public class MyConfig {
                 new ComboPooledDataSource();
         try {
             dataSource.setDriverClass("org.postgresql.Driver");
-            dataSource.setJdbcUrl("jdbc:postgresql://localhost/test_db");
+            dataSource.setJdbcUrl("jdbc:postgresql://localhost/course_manager");
             dataSource.setUser("postgres");
             dataSource.setPassword("root");
         } catch (PropertyVetoException e) {
@@ -89,15 +89,15 @@ public class MyConfig {
         return entityManagerFactoryBean;
     }
 
-    @Bean
-    public HibernateTransactionManager transactionManager() {
-        HibernateTransactionManager transactionManager =
-                new HibernateTransactionManager();
-
-        transactionManager.setSessionFactory(sessionFactoryBean().getObject());
-
-        return transactionManager;
-    }
+//    @Bean
+//    public HibernateTransactionManager transactionManager() {
+//        HibernateTransactionManager transactionManager =
+//                new HibernateTransactionManager();
+//
+//        transactionManager.setSessionFactory(sessionFactoryBean().getObject());
+//
+//        return transactionManager;
+//    }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //    @Bean

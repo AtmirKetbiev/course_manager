@@ -12,7 +12,6 @@ import ru.ketbiev.course_manager.service.SecurityService;
 import ru.ketbiev.course_manager.service.UserService;
 import ru.ketbiev.course_manager.validator.UserValidator;
 
-
 @Controller
 public class MainController {
 
@@ -36,14 +35,12 @@ public class MainController {
                                BindingResult bindingResult,
                                Model model) {
         userValidator.validate(userForm, bindingResult);
+        System.out.println("validate ok");
         if (bindingResult.hasErrors()) {
             return "registration";
         }
-            System.out.println(userForm.getUsername());
         userService.save(userForm);
-            System.out.println(userForm.getUsername());
         securityService.autoLogin(userForm.getUsername(), userForm.getConfirmPassword());
-            System.out.println(userForm.getUsername());
         return "redirect:/welcome";
     }
 
@@ -57,6 +54,11 @@ public class MainController {
             model.addAttribute("massage", "Logger out successfully");
         }
 
+        return "login";
+    }
+
+    @RequestMapping(value = "/q", method = RequestMethod.GET)
+    public String returnName() {
         return "login";
     }
 

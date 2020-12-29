@@ -13,16 +13,17 @@ public class User {
 
     @Column(name = "username")
     private String username;
+
     @Column(name = "password")
     private  String password;
 
     @Transient
     private String confirmPassword;
 
-    @ManyToMany
-    @JoinTable(name = "users_roles"
-            , joinColumns = @JoinColumn(name = "user_id")
-            , inverseJoinColumns = @JoinColumn(name = "roles_id"))
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "users_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "roles_id"))
     private Set<Role> roles;
 
     public User() {
@@ -66,16 +67,5 @@ public class User {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", confurmPassvord='" + confirmPassword + '\'' +
-                ", roles=" + roles +
-                '}';
     }
 }
