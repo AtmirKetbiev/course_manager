@@ -35,6 +35,7 @@ import java.util.Properties;
 @EnableWebMvc
 public class MyConfig {
 
+/**********************************************************************************************************************/
 //    Этот ViewResolver позволяет нам устанавливать такие свойства, как префикс или суффикс к имени представления, чтобы
 //    сгенерировать окончательный URL страницы просмотра:
     @Bean
@@ -45,13 +46,12 @@ public class MyConfig {
         return internalResourceViewResolver;
     }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/**********************************************************************************************************************/
 
 //    В классе конфигурации нам необходимо определить следующие интерфейсы для пользователя :
 //    DataSource
 //    EntityManagerFactory (userEntityManager)
 //    TransactionManager (userTransactionManager)
-
 
 //    Для подключения к бд указываем
 //    DriverClass (Класс драйвера)
@@ -89,23 +89,7 @@ public class MyConfig {
         return entityManagerFactoryBean;
     }
 
-//    @Bean
-//    public HibernateTransactionManager transactionManager() {
-//        HibernateTransactionManager transactionManager =
-//                new HibernateTransactionManager();
-//
-//        transactionManager.setSessionFactory(sessionFactoryBean().getObject());
-//
-//        return transactionManager;
-//    }
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-//    @Bean
-//    public ReloadableResourceBundleMessageSource reloadableResourceBundleMessageSource() {
-//        reloadableResourceBundleMessageSource().addBasenames("classpath:validation");
-//        return reloadableResourceBundleMessageSource();
-//    }
-//    Заменяем это
+/**********************************************************************************************************************/
 
     @Bean(name = "validator")
     public LocalValidatorFactoryBean getLocalValidatorFactoryBean() {
@@ -122,7 +106,7 @@ public class MyConfig {
         return messageSource;
     }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/**********************************************************************************************************************/
 
     @Bean
     public LocalSessionFactoryBean sessionFactoryBean() {

@@ -7,6 +7,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import ru.ketbiev.course_manager.entity.Student;
+import ru.ketbiev.course_manager.entity.Teacher;
 import ru.ketbiev.course_manager.entity.User;
 import ru.ketbiev.course_manager.service.SecurityService;
 import ru.ketbiev.course_manager.service.UserService;
@@ -57,11 +59,6 @@ public class MainController {
         return "login";
     }
 
-    @RequestMapping(value = "/q", method = RequestMethod.GET)
-    public String returnName() {
-        return "login";
-    }
-
     @RequestMapping(value = {"/", "/welcome"}, method = RequestMethod.GET)
     public String welcome(Model model) {
         return "welcome";
@@ -72,9 +69,6 @@ public class MainController {
         return "admin";
     }
 
-//    @Autowired
-//    private InterfaceService<Teacher> interfaceService;
-//
 //    @RequestMapping("/")
 //    public String showAllEmployee(Model model) {
 //        List<Teacher> teacher = interfaceService.getAll();
@@ -83,18 +77,18 @@ public class MainController {
 //        return "authorization";
 //    }
 //
-//    @RequestMapping("/teacher")
-//    public String addTeacher(Model model) {
-//        Teacher teacher = new Teacher();
-//        model.addAttribute("teacher", teacher);
-//        return "add-teacher";
-//    }
-//
-//    @RequestMapping("/student")
-//    public String addStudent(Model model) {
-//        Student student = new Student();
-//        model.addAttribute("student", student);
-//        return "add-student";
-//    }
+    @RequestMapping("/teacher")
+    public String addTeacher(Model model) {
+        Teacher teacher = new Teacher();
+        model.addAttribute("teacher", teacher);
+        return "add-teacher";
+    }
+
+    @RequestMapping("/student")
+    public String addStudent(Model model) {
+        Student student = new Student();
+        model.addAttribute("student", student);
+        return "add-student";
+    }
 
 }
